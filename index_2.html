@@ -214,6 +214,34 @@
         }
         /* CSS:FOOTER-END */
 
+        /* root fix：讓 flex/grid 子項目可以縮小 */
+        *, *::before, *::after {
+        min-width: 0;
+        }
+
+        /* 400px 以下縮排，避免容器邊界相加 >320px */
+        @media (max-width: 400px) {
+        .site-header-inner,
+        .container {
+            padding-inline: 1rem;
+        }
+
+        .site-header-inner {
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+        }
+        }
+
+        /* 小螢幕 hero 強制變單欄，避免 grid 撐寬 */
+        @media (max-width: 480px) {
+        .hero-layout {
+            grid-template-columns: 1fr;
+        }
+        }
+
         /* CSS:RWD-START */
         @media (max-width: 767px) { /* Adjustments for small screens, up to tablet portrait */
             .nav {
